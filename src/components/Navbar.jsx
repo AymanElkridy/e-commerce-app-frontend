@@ -34,7 +34,6 @@ const Navbar = () => {
 }
 
 const Container = styled.div`
-  height: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -42,9 +41,11 @@ const Container = styled.div`
   background-color: #000;
   color: #fff;
   user-select: none;
+  position: sticky;
 `
 
 const Wrapper = styled.div`
+  height: 60px;
   display: flex;
   width: 90%;
   min-width: 256px;
@@ -61,11 +62,15 @@ const Languages = styled.div`
   flex: 1;
   display: flex;
   align-items: center;
+  padding: 0 8px;
   cursor: pointer;
   transition: .2s;
   text-decoration: underline transparent;
   &:hover {
     text-decoration-color: #fff;
+  }
+  @media screen and (max-width: 768px) {
+    display: none;
   }
 `
 
@@ -77,6 +82,7 @@ const SearchContainer = styled.div`
   border: solid 1px #999;
   border-radius: 14px;
   height: 28px;
+  margin: 0 8px;
 `
 
 const SearchBar = styled.input`
@@ -106,6 +112,7 @@ const Center = styled.div`
   justify-content: center;
   padding: 8px 0 0;
   & h1 {
+    margin: 0;
     font-size: 2.5rem;
     cursor: pointer;
     transition: .25s;
