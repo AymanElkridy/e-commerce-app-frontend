@@ -25,13 +25,14 @@ const Slider = () => {
         <Slides slidesCount={sliderItems.length} slideIndex={slideIndex}>
           {sliderItems.map((item) => {
             return (
-              <Slide bg = {item.bg}>
+              <Slide bg = {item.bg} key={`slide${item.id}`}>
                 <SliderImage>
                   <img src={require(`../assets/img/slider/slide${item.id}.png`)} alt={item.desc}/>
                 </SliderImage>
                 <SliderText>
                   <Title>{item.title}</Title>
                   <Desc>{item.desc}</Desc>
+                  <SliderButton>TAKE A LOOK</SliderButton>
                 </SliderText>
               </Slide>
             )
@@ -52,6 +53,7 @@ const Container = styled.div`
   justify-content: center;
   height: 75vh;
   overflow: hidden;
+  user-select: none;
 `
 
 const Wrapper = styled.div`
@@ -129,6 +131,16 @@ const Desc = styled.span`
   font-weight: 300;
   letter-spacing: 4px;
   line-height: 24px;
+`
+
+const SliderButton = styled.button`
+  border: solid 2px #000;
+  background-color: transparent;
+  padding: 8px;
+  margin: 24px 0;
+  width: fit-content;
+  font-size: 16px;
+  cursor: pointer;
 `
 
 export default Slider

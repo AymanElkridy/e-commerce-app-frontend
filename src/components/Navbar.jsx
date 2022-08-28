@@ -139,7 +139,6 @@ const SignUp = styled.div`
   }
   background-color: #06c25e;
   border: solid 2px #333;
-  border-radius: 14px;
   cursor: pointer;
   transition: .25s;
   &:hover {
