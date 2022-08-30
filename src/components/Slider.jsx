@@ -25,16 +25,7 @@ const Slider = () => {
         <Slides slidesCount={sliderItems.length} slideIndex={slideIndex}>
           {sliderItems.map((item) => {
             return (
-              <Slide bg = {item.bg} key={`slide${item.id}`}>
-                <SliderImage>
-                  <img src={require(`../assets/img/slider/slide${item.id}.png`)} alt={item.desc}/>
-                </SliderImage>
-                <SliderText>
-                  <Title>{item.title}</Title>
-                  <Desc>{item.desc}</Desc>
-                  <SliderButton>TAKE A LOOK</SliderButton>
-                </SliderText>
-              </Slide>
+              <SingleSlide item={item}  key={`slide${item.id}`}/>
             )
           })}
         </Slides>
@@ -45,6 +36,21 @@ const Slider = () => {
         </Arrow>
       </Wrapper>
     </Container>
+  )
+}
+
+const SingleSlide = (props) => {
+  return (
+    <Slide bg = {props.item.bg}>
+      <SliderImage>
+        <img src={require(`../assets/img/slider/slide${props.item.id}.png`)} alt={props.item.desc}/>
+      </SliderImage>
+      <SliderText>
+        <Title>{props.item.title}</Title>
+        <Desc>{props.item.desc}</Desc>
+        <SliderButton>TAKE A LOOK</SliderButton>
+      </SliderText>
+    </Slide>
   )
 }
 
@@ -61,13 +67,6 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   text-align: left;
-`
-
-const Slides = styled.div`
-  display: flex;
-  height: 80vh;
-  transition: ease .75s;
-  translate: ${props => (props.slidesCount - 1) * 50 - (props.slideIndex * 100)}vw;
 `
 
 const Arrow = styled.div`
@@ -88,6 +87,13 @@ const Arrow = styled.div`
     background-color: #ffffff80;
   }
   z-index: 1000;
+`
+
+const Slides = styled.div`
+  display: flex;
+  height: 80vh;
+  transition: ease 1s;
+  translate: ${props => (props.slidesCount - 1) * 50 - (props.slideIndex * 100)}vw;
 `
 
 const Slide = styled.div`
