@@ -26,7 +26,8 @@ const Container = styled.div`
   text-align: center;
   flex-direction: column;
   height: 35vh;
-  background-color: #efe0e0;
+  background: rgb(248,248,255);
+  background: linear-gradient(90deg, rgba(248,248,255,1) 0%, rgba(255,248,248,1) 50%, rgba(248,255,248,1) 100%);
 `
 
 const TextWrapper = styled.div`
@@ -58,11 +59,11 @@ const InputWrapper = styled.div`
 
 const InputField = styled.input`
   flex: 7;
-  border: 0;
   outline: none;
-  height: 40px;
+  height: 42px;
   font-size: 20px;
   padding-left: 12px;
+  border: solid 2px #06c25e;
 `
 
 const InputButton = styled.button`
