@@ -19,14 +19,14 @@ const Footer = () => {
           <h2>Useful Links</h2>
           <ul>
             <li>Home</li>
-            <li>About</li>
+            <li>About Us</li>
+            <li>Contact Us</li>
             <li>Services</li>
             <li>Products</li>
             <li>Vendors</li>
             <li>Delivery</li>
             <li>Global</li>
             <li>Local</li>
-            <li>Contacts</li>
             <li>Complaints</li>
           </ul>
         </Center>
@@ -50,7 +50,6 @@ const Footer = () => {
 }
 
 const Container = styled.div`
-  height: 35vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -61,16 +60,27 @@ const Container = styled.div`
 const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: center;
   width: 90%;
   height: 100%;
+  margin: 24px 0;
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `
 
 const Left = styled.div`
-  flex: 1;
+  flex: 2;
   display: flex;
   flex-direction: column;
-  height: 80%;
+  @media screen and (max-width: 768px) {
+    width: 90%;
+    min-width: 256px;
+    text-align: center;
+    align-items: center;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #333;
+  }
 `
 
 const Logo = styled.h1`
@@ -78,6 +88,9 @@ const Logo = styled.h1`
   user-select: none;
   cursor: pointer;
   width: fit-content;
+  @media screen and (max-width: 768px) {
+    margin: 0;
+  }
 `
 
 const Desc = styled.p`
@@ -85,10 +98,20 @@ const Desc = styled.p`
   margin: 8px 0;
   width: 90%;
   text-align: justify;
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `
 
 const SocialIcons = styled.div`
   margin-top: 16px;
+  user-select: none;
+  @media screen and (max-width: 768px) {
+    margin-top: 8px;
+    display: flex;
+    justify-content: space-around;
+    width: 280px;
+  }
 `
 
 const SocialIcon = styled.img`
@@ -102,33 +125,49 @@ const SocialIcon = styled.img`
   &:hover {
     transform: scale(1.1);
   }
+  @media screen and (max-width: 768px) {
+    margin: 0;
+  }
 `
 
 const Center = styled.div`
   flex: 1;
   display: flex;
-  text-align: left;
-  align-items: center;
   flex-direction: column;
-  height: 80%;
   & h2 {
     margin: 0 0 0 8px;
     padding: 0 0 0 8px;
     width: 70%;
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
   }
   & ul {
     list-style: none;
     font-weight: 300;
     columns: 2;
-    width: 70%;
-    min-width: 128px;
-    margin: 8px 0;
-    padding: 8px 0;
+    margin: 8px 0 0 8px;
+    padding: 8px 0 0;
+    width: fit-content;
+    @media screen and (max-width: 768px) {
+      columns: unset;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      width: 100%;
+      padding: 0;
+      & li:nth-child(n+6) {
+        display: none;
+      }
+    }
     & li {
       margin: 4px;
       padding: 4px;
       &:nth-child(6) {
         padding-top: 8px;
+        @media screen and (max-width: 768px) {
+          padding-top: 4px;
+        }
       }
       cursor: pointer;
     }
@@ -145,6 +184,9 @@ const Right = styled.div`
     margin: 0 0 8px 8px;
     padding: 0 0 8px 8px;
     width: 70%;
+  }
+  @media screen and (max-width: 768px) {
+    display: none;
   }
 `
 

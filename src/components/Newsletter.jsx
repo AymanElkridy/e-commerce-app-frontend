@@ -36,6 +36,8 @@ const TextWrapper = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
+  width: 90%;
+  min-width: 256px;
 `
 
 const Header = styled.h1`
@@ -54,7 +56,9 @@ const InputWrapper = styled.div`
   justify-content: center;
   align-items: center;
   background-color: #fff;
-  width: 480px;
+  max-width: 480px;
+  width: 90%;
+  min-width: 256px;
 `
 
 const InputField = styled.input`

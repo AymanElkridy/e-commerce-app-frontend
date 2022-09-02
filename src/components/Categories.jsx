@@ -54,7 +54,7 @@ const Wrapper = styled.div`
     transform: scale(1.03);
   }
   @media screen and (max-width: 768px) {
-    height: 200px;
+    height: 256px;
     width: 100%;
     margin: 4px 24px;
   }
@@ -75,6 +75,7 @@ const CategoryTitle = styled.div`
   width: 265px;
   font-weight: 900;
   color: #fff;
+  font-size: 14px;
 `
 
 export default Categories

@@ -57,7 +57,6 @@ const SingleSlide = (props) => {
 const Container = styled.div`
   display: flex;
   justify-content: center;
-  height: 75vh;
   overflow: hidden;
   user-select: none;
 `
@@ -87,11 +86,17 @@ const Arrow = styled.div`
     background-color: #ffffff80;
   }
   z-index: 1000;
+  @media screen and (max-width: 768px) {
+    height: 30px;
+    width: 30px;
+    & .material-icons {
+      font-size: 28px;
+    }
+  }
 `
 
 const Slides = styled.div`
   display: flex;
-  height: 80vh;
   transition: ease 1s;
   translate: ${props => (props.slidesCount - 1) * 50 - (props.slideIndex * 100)}vw;
 `
@@ -102,41 +107,57 @@ const Slide = styled.div`
   align-items: center;
   background-color: #${props => props.bg};
   width: 100vw;
-  height: 100%;
 `
 
 const SliderImage = styled.div`
-  width: 40%;
+  flex: 1;
   display: flex;
   justify-content: flex-end;
   padding: 24px;
   & img {
-    height: 60vh;
-    width: 75%;
-    object-fit: cover;
+    width: 50%;
+    object-fit: contain;
     object-position: 0 0;
+    max-height: 70vh;
+    min-width: 64px;
   }
 `
 
 const SliderText = styled.div`
+  flex: 3;
   display: flex;
   flex-direction: column;
-  width: 40%;
 `
 
 const Title = styled.span`
   display: block;
   font-size: 40px;
   font-weight: 600;
-  margin-bottom: 20px;
+  margin: 20px 0;
+  @media screen and (max-width: 768px) {
+    font-size: 28px;
+  }
+  @media screen and (max-width: 340px) {
+    font-size: 20px;
+  }
 `
 
 const Desc = styled.span`
   display: block;
+  width: calc(90% - 24px);
   font-size: 20px;
   font-weight: 300;
   letter-spacing: 4px;
   line-height: 24px;
+  @media screen and (max-width: 768px) {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: normal;
+    line-height: normal;
+  }
+  @media screen and (max-width: 340px) {
+    font-size: 12px;
+  }
 `
 
 const SliderButton = styled.button`

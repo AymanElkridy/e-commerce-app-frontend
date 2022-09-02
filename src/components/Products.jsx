@@ -20,13 +20,13 @@ const Product = (props) => {
   return (
     <ProductWrapper>
       <ProductForeground>
-        <span class="material-symbols-outlined">
-          heart_plus
+        <span class="material-icons">
+          favorite
         </span>
-        <span class="material-symbols-outlined">
+        <span class="material-icons">
           visibility
         </span>
-        <span class="material-symbols-outlined">
+        <span class="material-icons">
           add_shopping_cart
         </span>
       </ProductForeground>

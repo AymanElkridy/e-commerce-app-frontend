@@ -1,47 +1,90 @@
 import styled from "styled-components"
 
 const Navbar = () => {
+  const toggleSearch = () => {
+    document.getElementById('responsive-search-container').classList.toggle('hidden')
+    const icon = document.getElementById('toggle-search-icon')
+    icon.innerText = icon.innerText === 'search' ? 'close' : 'search'
+  }
+
+  const toggleMenu = () => {
+    document.getElementById('responsive-menu').classList.toggle('hidden')
+    const icon = document.getElementById('toggle-menu-icon')
+    icon.innerText = icon.innerText === 'menu' ? 'close' : 'menu'
+  }
+
   return (
-    <Container>
-      <Wrapper>
-        <Left>
-          <Languages>
-            <span>EN</span>
-          </Languages>
-          <SearchContainer>
-            <SearchBar placeholder="Search for products" />
+    <>
+      <Container>
+        <Wrapper>
+          <Left>
+            <SearchIconResponsive onClick={toggleSearch}>
+              <span class="material-icons" id="toggle-search-icon">
+                search
+              </span>
+            </SearchIconResponsive>
+            <Languages>
+              <span class="material-icons">
+                  language
+              </span>
+            </Languages>
+            <SearchContainer>
+              <SearchBar placeholder="Search for products" />
+              <SearchIcon>
+                <span class="material-icons">
+                  search
+                </span>
+              </SearchIcon>
+            </SearchContainer>
+          </Left>
+          <Center>
+            <h1>GODOT.</h1>
+          </Center>
+          <Right>
+            <SignUp>
+              <span>SIGN UP</span>
+            </SignUp>
+            <Login>
+              LOGIN
+            </Login>
+            <HamburgerButtonResponsive onClick={toggleMenu}>
+              <span class="material-icons" id="toggle-menu-icon">
+                menu
+              </span>
+            </HamburgerButtonResponsive>
+          </Right>
+        </Wrapper>
+      </Container>
+      <Responsive>
+        <ResponsiveSearchContainer className="hidden" id="responsive-search-container">
+          <SearchBar placeholder="Search for products" />
             <SearchIcon>
               <span class="material-icons">
                 search
               </span>
             </SearchIcon>
-          </SearchContainer>
-        </Left>
-        <Center>
-          <h1>GODOT.</h1>
-        </Center>
-        <Right>
-          <SignUp>
-            <span>SIGN UP</span>
-          </SignUp>
-          <Login>
-            LOGIN
-          </Login>
-        </Right>
-      </Wrapper>
-    </Container>
+        </ResponsiveSearchContainer>
+        <ResponsiveMenu className="hidden" id="responsive-menu">
+          <ul>
+            <li>Language</li>
+            <li>Sign Up</li>
+            <li>Login</li>
+          </ul>
+        </ResponsiveMenu>
+      </Responsive>
+    </>
   )
 }
 
 const Container = styled.div`
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   text-align: center;
   background-color: #000;
   color: #fff;
   user-select: none;
-  position: sticky;
 `
 
 const Wrapper = styled.div`
@@ -58,17 +101,31 @@ const Left = styled.div`
   align-items: center;
 `
 
+const SearchIconResponsive = styled.div`
+  height: 16px;
+  width: 16px;
+  padding: 8px;
+  color: #fff;
+  border: 2px solid #666;
+  border-radius: 25%;
+  display: none;
+  cursor: pointer;
+  &:active {
+    background-color: #666;
+  }
+  @media screen and (max-width: 768px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+`
+
 const Languages = styled.div`
   flex: 1;
   display: flex;
   align-items: center;
   padding: 0 8px;
   cursor: pointer;
-  transition: .2s;
-  text-decoration: underline transparent;
-  &:hover {
-    text-decoration-color: #fff;
-  }
   @media screen and (max-width: 768px) {
     display: none;
   }
@@ -83,6 +140,9 @@ const SearchContainer = styled.div`
   border-radius: 14px;
   height: 28px;
   margin: 0 8px;
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `
 
 const SearchBar = styled.input`
@@ -90,6 +150,7 @@ const SearchBar = styled.input`
   border: none;
   background: none;
   margin-left: 8px;
+  height: 24px;
   &:focus {
     outline: none;
   }
@@ -145,6 +206,9 @@ const SignUp = styled.div`
     filter: brightness(1.1);
     box-shadow: 0 0 8px #06c25e99;
   }
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `
 
 const Login = styled.div`
@@ -154,6 +218,82 @@ const Login = styled.div`
   text-decoration: underline transparent;
   &:hover {
     text-decoration-color: #fff;
+  }
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+`
+
+const HamburgerButtonResponsive = styled.div`
+  height: 16px;
+  width: 16px;
+  padding: 8px;
+  color: #fff;
+  border: 2px solid #666;
+  border-radius: 25%;
+  display: none;
+  cursor: pointer;
+  &:active {
+    background-color: #666;
+  }
+  @media screen and (max-width: 768px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+`
+
+const Responsive = styled.div`
+  display: flex;
+  height: 0;
+  user-select: none;
+`
+
+const ResponsiveSearchContainer = styled.div`
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border: solid 1px #999;
+  border-radius: 14px;
+  height: 28px;
+  margin: 0 8px;
+  position: relative;
+  top: -12px;
+  z-index: 1200;
+  width: 256px;
+  &.hidden {
+    display: none;
+  }
+`
+
+const ResponsiveMenu = styled.div`
+  display: flex;
+  align-items: flex-start;
+  background-color: #fff;
+  border: solid 1px #999;
+  margin-left: auto;
+  height: fit-content;
+  position: relative;
+  top: -12px;
+  z-index: 1200;
+  width: 128px;
+  & ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    & li {
+      padding: 16px;
+      border-bottom: solid 1px #999;
+      width: 100%;
+      transition: ease .1s;
+      cursor: pointer;
+      &:hover {
+        background-color: #06c25e;
+      }
+    }
+  }
+  &.hidden {
+    display: none;
   }
 `
 

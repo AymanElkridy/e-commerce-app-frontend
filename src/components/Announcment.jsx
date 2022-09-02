@@ -24,6 +24,10 @@ const Container = styled.div`
   &:hover {
       filter: brightness(1.1);
   }
+  @media screen and (max-width: 768px) {
+    height: fit-content;
+    min-height: 28px;
+  }
 `
 
 const Wrapper = styled.div`
