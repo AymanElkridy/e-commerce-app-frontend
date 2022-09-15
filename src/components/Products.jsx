@@ -40,6 +40,7 @@ const Product = (props) => {
 const Container = styled.div`
   text-align: center;
   color: #fff;
+  background-color: #60aa80;
   & h1 {
     margin: 0;
     padding: 32px 16px 16px;
